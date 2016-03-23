@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 #
 
 if [ "$http_proxy" != "" ]
@@ -42,5 +42,5 @@ fi
 
 IMAGE_NAME=$(cat image_version)
 
-sudo docker build -t $2/$IMAGE_NAME $PROXY .
-sudo docker push $2/$IMAGE_NAME
+docker build -t $2/$IMAGE_NAME $PROXY .
+docker push $2/$IMAGE_NAME

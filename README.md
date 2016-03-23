@@ -2,6 +2,9 @@ This repository is a collection of docker images builder, currently for ruby fro
 
 It is used for demo purpose.
 
+__requirements:__
+- docker should work fine in your user context. 
+
 To create those images, move in each ruby subdirectory and build your image as follow:
 
     $ bin/build.sh imageName myrepo
