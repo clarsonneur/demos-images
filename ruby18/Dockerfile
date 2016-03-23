@@ -2,9 +2,6 @@ FROM centos:6
 
 MAINTAINER christophe.larsonneur@hpe.com
 
-#COPY files/yum_proxy.sh /tmp/yum_proxy.sh
-#RUN /tmp/yum_proxy.sh
-
 RUN yum install libffi-devel \
                 libxml2-devel \
                 libxslt-devel \
@@ -18,3 +15,14 @@ RUN yum install libffi-devel \
 RUN gem install --no-rdoc --no-ri bundler && \
     rm -fr /root/.gem
 
+RUN useradd -d /src -u 1000 develop
+
+COPY *.sh /usr/local/bin/
+
+USER develop
+
+WORKDIR /src
+
+ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+
+CMD [ "-T" ]
