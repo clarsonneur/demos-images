@@ -2,9 +2,6 @@ FROM centos:7
 
 MAINTAINER christophe.larsonneur@hpe.com
 
-COPY files/yum_proxy.sh /tmp/yum_proxy.sh
-RUN /tmp/yum_proxy.sh
-
 RUN yum install libffi-devel \
                 libxml2-devel \
                 libxslt-devel \
